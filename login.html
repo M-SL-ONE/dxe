@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no">
+	<title>登录</title>
+	<script>
+		// rem适配
+		(function(){
+			var html = document.documentElement;
+			var hWidth = html.getBoundingClientRect().width;
+			html.style.fontSize = hWidth/15 + 'px';
+		})()
+	</script>
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/login.css">
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/login2.js"></script>
+</head>
+<body>
+	<h1 class="logo">店小二</h1>
+	<div class="shopLogin">
+		<form action="">
+			<p class="shopName">
+				<label for="" class="fa fa-map-marker"></label>
+				<select>
+					<option>门店1</option>
+					<option>门店2</option>
+					<option>门店3</option>
+					<option>门店4</option>
+					<option>门店5</option>
+					<option>门店6</option>
+				</select>
+			</p>
+			<p class="shopUser">
+				<label for="" class="fa fa-user"></label>
+				<select>
+					<option selected="selected">超级用户</option>
+					<option>销售员一</option>
+					<option>销售员二</option>
+					<option>采购员一</option>
+					<option>采购员二</option>
+					<option>库管员一</option>
+					<option>财务</option>
+				</select>
+			</p>
+			<p class="shopPass"><label for="" class="fa fa-key"></label><input id="pwd" type="password" placeholder="请输入密码"><span class="fa fa-eye-slash eye"></span></p>
+			<button type="submit" class="login">立即登录</button>
+			<!-- <a class="configuration" href="configuration.html"><i class="fa fa-info-circle"></i>配置</a> -->
+		</form>		
+	</div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no">
+	<title>配置</title>
+	<script>
+		// rem适配
+		(function(){
+			var html = document.documentElement;
+			var hWidth = html.getBoundingClientRect().width;
+			html.style.fontSize = hWidth/15 + 'px';
+		})()
+	</script>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/configuration.css">
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+	<div class="header">
+		<h1><span class="fa fa-chevron-left return"></span>服务器配置</h1>
+		<p><span class="addServer">添加</span><span class="modifyServer">修改</span><span class="testServer">测试</span></p>
+	</div>
+	<div class="config-list">
+		<table>
+			<thead>
+				<tr>
+					<td>服务器名称</td>
+					<td>服务器地址</td>
+					<td>端口</td>
+					<td>修改</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="target">
+					<td class="serverName">演示服务器2</td>
+					<td class="serverSite">www.baidu.com</td>
+					<td class="serverPort">80</td>
+					<td class="fa fa-trash deleteServer"></td>
+				</tr>
+				<tr>
+					<td class="serverName">演示服务器3</td>
+					<td class="serverSite">www.baidu.com</td>
+					<td class="serverPort">8080</td>
+					<td class="fa fa-trash deleteServer"></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="4">扫码添加服务器</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	<div class="config-target">
+		<p><label for="">当前地址</label><input class="nowSite" type="text" placeholder="请选择"></p>
+		<p style="display: none;"><label for="">测试详情</label><input class="testInfo" type="text"></p>
+		<p>
+			<label for="">当前数据库</label>
+			<select name="" id="">
+				<option value="">数据库1</option>
+				<option value="">数据库2</option>
+				<option value="">数据库3</option>
+				<option value="">数据库4</option>
+			</select>
+		</p>
+		<button class="save">保存</button>
+	</div>
+	<div class="serverEdit">
+		<div class="header">
+			<h1><span class="fa fa-chevron-left cancel"></span>服务器新增</h1>
+			<p><span>扫码</span><span class="clearServer">清除</span></p>
+		</div>	
+		<form>
+			<p>
+				<label>服务器名称</label><input type="text" name="" placeholder="服务器名称" class="editName">
+			</p>
+			<p>
+				<label>服务器地址</label><input type="text" name="" placeholder="服务器地址" class="editSite">
+			</p>
+			<p>
+				<label>服务器端口</label><input type="text" name="" placeholder="服务器端口" class="editPort">
+			</p>
+			<a class="saveServer">保存</a>
+		</form>
+	</div>
+	<div class="serverChange">
+		<div class="header">
+			<h1><span class="fa fa-chevron-left cancel"></span>服务器修改</h1>
+			<p><span>扫码</span><span class="clearServer2">清除</span></p>
+		</div>	
+		<form>
+			<p>
+				<label>服务器名称</label><input type="text" name="" placeholder="服务器名称" class="changeName">
+			</p>
+			<p>
+				<label>服务器地址</label><input type="text" name="" placeholder="服务器地址" class="changeSite">
+			</p>
+			<p>
+				<label>服务器端口</label><input type="text" name="" placeholder="服务器端口" class="changePort">
+			</p>
+			<a class="changeServer">保存</a>
+		</form>
+	</div>
+</body>
+</html>

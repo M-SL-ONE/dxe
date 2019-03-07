@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no">
+	<title>登录</title>
+	<script>
+		// rem适配
+		(function(){
+			var html = document.documentElement;
+			var hWidth = html.getBoundingClientRect().width;
+			html.style.fontSize = hWidth/15 + 'px';
+		})()
+	</script>
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/login.css">
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/login1.js"></script>
+</head>
+<body>
+	<h1 class="logo">店小二</h1>
+	<div class="shopLogin1">
+		<form action="">
+			<p class="shopPhone"><label for="" class="fa fa-phone"></label><input id="pwd" type="number" placeholder="请输入手机号"><span class="bt">*</span></p>
+			<p class="shopPass1"><label for="" class="fa fa-key"></label><input id="yzm" type="text" placeholder="请输入验证码"><span class="">发送验证码</span></p>
+			<button type="submit" class="login1">立即登录</button>
+		</form>		
+	</div>
+</body>
+</html>

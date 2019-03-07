@@ -1,0 +1,166 @@
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.logo {
+  width: 100%;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #00abf1;
+  position: absolute;
+  top: 3rem;
+}
+.shopLogin {
+  width: 14rem;
+  position: absolute;
+  top: 6rem;
+  left: 0.5rem;
+}
+.shopLogin p {
+  width: 100%;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  margin-bottom: 0.3rem;
+  border-radius: 0.3rem;
+  position: relative;
+  overflow: hidden;
+  border: 0.05rem solid #ccc;
+  box-sizing: content-box;
+  background: #fff;
+}
+.shopLogin p label {
+  float: left;
+  font-size: 0.6rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  color: #666;
+  background: #eee;
+  border-right: 0.05rem solid #ccc;
+  box-sizing: border-box;
+}
+.shopLogin p input,
+.shopLogin p select {
+  float: left;
+  width: 12rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 0.5rem;
+  text-indent: 2em;
+}
+.shopLogin p span {
+  position: absolute;
+  right: 0.5rem;
+  top: 0;
+  line-height: 1.5rem;
+  font-size: 0.7rem;
+  color: #999;
+}
+.shopLogin .login {
+  width: 100%;
+  height: 1.4rem;
+  line-height: 1.4rem;
+  background: #00abf1;
+  color: #fff;
+  margin-bottom: 0.3rem;
+  border-radius: 0.5rem;
+}
+.shopLogin .configuration {
+  display: block;
+  width: 3rem;
+  height: 1.2rem;
+  float: right;
+  line-height: 1.2rem;
+  background: none;
+  color: #00abf1;
+  margin-bottom: 0.3rem;
+  border-radius: 0.5rem;
+  text-align: right;
+  font-size: 0.6rem;
+}
+.shopLogin .configuration i {
+  margin-right: 0.3rem;
+}
+.shopLogin1 {
+  width: 14rem;
+  position: absolute;
+  top: 6rem;
+  left: 0.5rem;
+}
+.shopLogin1 p {
+  width: 100%;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  margin-bottom: 0.3rem;
+  border-radius: 0.3rem;
+  position: relative;
+  overflow: hidden;
+  border: 0.05rem solid #ccc;
+  box-sizing: content-box;
+}
+.shopLogin1 p label {
+  float: left;
+  font-size: 0.6rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  color: #666;
+  background: #eee;
+  border-right: 0.05rem solid #ccc;
+  box-sizing: border-box;
+}
+.shopLogin1 p input {
+  float: left;
+  width: 8rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  background: #fff;
+  border: none;
+  color: #333;
+  font-size: 0.5rem;
+  text-indent: 2em;
+}
+.shopLogin1 p span {
+  float: right;
+  display: block;
+  width: 4rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.5rem;
+  color: #fff;
+  text-align: center;
+  background: #00abf1;
+}
+.shopLogin1 p .bt {
+  width: 1rem;
+  color: red;
+  font-weight: bold;
+  background: none;
+}
+.shopLogin1 .login1 {
+  width: 100%;
+  height: 1.4rem;
+  line-height: 1.4rem;
+  background: #00abf1;
+  color: #fff;
+  margin-bottom: 0.3rem;
+  border-radius: 0.5rem;
+}
+.copyright {
+  position: absolute;
+  bottom: 0;
+  height: 2rem;
+  width: 100%;
+  line-height: 2rem;
+  text-align: center;
+  font-size: 0.5rem;
+}
+/*# sourceMappingURL=login.css.map */

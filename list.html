@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no">
+	<title>采购订单</title>
+	<script>
+		// rem适配
+		(function(){
+			var html = document.documentElement;
+			var hWidth = html.getBoundingClientRect().width;
+			html.style.fontSize = hWidth/15 + 'px';
+		})()
+	</script>
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/list.css">
+	<link rel="stylesheet" type="text/css" href="css/date.css">
+
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/date.js"></script>
+	<script type="text/javascript" src="js/iscroll_date.js"></script>
+	<script type="text/javascript" src="js/list.js"></script>
+</head>
+<body>
+	<div class="header">
+		<h1><span class="fa fa-chevron-left return"></span>采购订单</h1>
+		<p><span class="unreviewed nowState">未审核<i class="fa fa-circle"></i></span><span class="reviewed">已审核<i class="fa fa-circle"></i></span><span class="all">全部<i class="fa fa-circle"></i></span><!-- <span class="fa fa-ellipsis-v more"></span> --></p>
+	</div>
+	<div class="list-edit">
+		<form action="" autocomplete="off">
+			<div>
+				<p>
+					<label for="">单据编号</label><input type="text" value="123456" disabled="disabled">
+				</p>
+				<p>
+					<label for="">需求日期</label><input type="text" class="xqrq" ><span class="fa fa-chevron-right"></span>
+				</p>
+				<p>
+					<label for="">经手人</label>
+					<select name="" id="">
+						<option value="">管理员1</option>
+						<option value="">管理员2</option>
+						<option value="">管理员3</option>
+						<option value="">管理员4</option>
+					</select>
+				</p>
+				<p>
+					<label for="">摘要</label><input type="text" placeholder="摘要"><span></span>
+				</p>
+				<p>
+					<label for="">条码扫描</label><input type="number" placeholder="条码" class="tm"><span class="fa fa-search searchbtn"></span>
+				</p>				
+			</div>
+			<a href="javascript:;" class="fold"><i class="fa fa-angle-double-down"></i></a>
+		</form>
+	</div>
+	<div class="list-info">
+		<!-- <p>采购订单</p> -->
+	</div>
+	<div class="footer clearfix">
+		<div class="totalNum">总数量：<span>0</span></div>
+		<div class="totalMoney">总金额：<span>0</span></div>
+		<!-- <div class="code"><span class="fa fa-plus-square-o"></span>扫描条码</div> -->
+		<div class="add"><span class="fa fa-plus-square-o"></span>添加商品</div>
+	</div>
+	<!-- 日期容器 -->
+	<div id="datePlugin"></div>	
+	<div class="type-list clearfix">
+		<div class="header">
+			<h1><!-- <span class="fa fa-chevron-left"></span> -->选择商品</h1>
+			<p><span class="showImg">显示图片</span><!-- <span>新增</span> --><span class="top">上一级</span><span class="determain">确定</span></p>
+		</div>
+		<div class="add-search">
+			<div class="add-type">
+				<div>类别</div>
+				<div>供应商</div>
+				<div>品牌</div>
+			</div>
+			<input type="text" placeholder="请输入商品名称" id="search" on="true">
+		</div>
+		<div class="class-list">
+			<dl class="clearfix">
+				<img src="images/1.jpg" alt="">
+				<div>
+					<dt>
+						<i></i>
+						<strong>进口商品</strong>
+						<span class="fa fa-chevron-right"></span>
+					</dt>
+					<dd>编码：<span>01</span></dd>
+					<dd>库存：<span>01</span></dd>
+					<dd>型号：<span>01</span></dd>
+					<dd>规格：<span>01</span></dd>					
+				</div>
+			</dl>
+			<dl class="clearfix">
+				<img src="images/1.jpg" alt="">
+				<div>
+					<dt>
+						<i></i>
+						<strong>进口商品</strong>
+						<span class="fa fa-chevron-right"></span>
+					</dt>
+					<dd>编码：<span>02</span></dd>
+					<dd>库存：<span>01</span></dd>
+					<dd>型号：<span>01</span></dd>
+					<dd>规格：<span>01</span></dd>					
+				</div>
+			</dl>
+		</div>
+		<div class="wrap">
+			<div class="goods-list">
+				<dl id="1" class="clearfix">
+					<img src="images/1.jpg" alt="">
+					<div>
+						<dt>
+							<i></i>
+							<strong>进口商品</strong>
+							<span class="fa fa-square-o"></span>
+						</dt>
+						<dd>编码：<span>0101</span></dd>
+						<dd>库存：<span>01</span></dd>
+						<dd>型号：<span>01</span></dd>
+						<dd>规格：<span>01</span></dd>					
+					</div>
+				</dl>
+				<dl id="2" class="clearfix">
+					<img src="images/1.jpg" alt="">
+					<div>
+						<dt>
+							<i></i>
+							<strong>进口商品</strong>
+							<span class="fa fa-square-o"></span>
+						</dt>
+						<dd>编码：<span>0102</span></dd>
+						<dd>库存：<span>01</span></dd>
+						<dd>型号：<span>01</span></dd>
+						<dd>规格：<span>01</span></dd>					
+					</div>
+				</dl>
+			</div>
+			<div class="goods-list">
+				<dl id="3" class="clearfix">
+					<img src="images/1.jpg" alt="">
+					<div>
+						<dt>
+							<i></i>
+							<strong>进口商品</strong>
+							<span class="fa fa-square-o"></span>
+						</dt>
+						<dd>编码：<span>0201</span></dd>
+						<dd>库存：<span>01</span></dd>
+						<dd>型号：<span>01</span></dd>
+						<dd>规格：<span>01</span></dd>					
+					</div>
+				</dl>
+				<dl id="4" class="clearfix">
+					<img src="images/1.jpg" alt="">
+					<div>
+						<dt>
+							<i></i>
+							<strong>进口商品</strong>
+							<span class="fa fa-square-o"></span>
+						</dt>
+						<dd>编码：<span>0202</span></dd>
+						<dd>库存：<span>01</span></dd>
+						<dd>型号：<span>01</span></dd>
+						<dd>规格：<span>01</span></dd>					
+					</div>
+				</dl>
+				<dl id="5" class="clearfix">
+					<img src="images/1.jpg" alt="">
+					<div>
+						<dt>
+							<i></i>
+							<strong>我</strong>
+							<span class="fa fa-square-o"></span>
+						</dt>
+						<dd>编码：<span>0201</span></dd>
+						<dd>库存：<span>01</span></dd>
+						<dd>型号：<span>01</span></dd>
+						<dd>规格：<span>01</span></dd>					
+					</div>
+				</dl>
+				<dl id="6" class="clearfix">
+					<img src="images/1.jpg" alt="">
+					<div>
+						<dt>
+							<i></i>
+							<strong>你</strong>
+							<span class="fa fa-square-o"></span>
+						</dt>
+						<dd>编码：<span>0202</span></dd>
+						<dd>库存：<span>01</span></dd>
+						<dd>型号：<span>01</span></dd>
+						<dd>规格：<span>01</span></dd>					
+					</div>
+				</dl>
+			</div>	
+		</div>
+	</div>
+	<div class="goods-info">
+		<div class="header">
+			<h1><!-- <span class="fa fa-chevron-left"></span> -->添加商品</h1>
+			<p><span>收藏</span><span>删除</span></p>
+		</div>
+		<div action="" class="goods-form">
+			<div class="goods" uid="1">
+				<form action="">
+					<div class="goods-head clearfix">
+						<img src="images/1.jpg" alt="">
+						<div>
+							<p>荔枝1</p>
+							<p>编号：<span>01001</span></p>
+							<p>条码：<span>01001000000</span></p>
+						</div>
+					</div>
+					<div class="head-body">
+						<div>
+							<p style="width: 100%;"><label for="">数量</label><input type="number" class="sl" placeholder="数量"></p>
+						</div>
+						<div>
+							<p style="width: 100%;">
+								<label for="">单位</label>
+								<span class="nowUnit unit">盒</span>
+								<span class="unit">箱</span>
+							</p>
+						</div>
+						<div>
+							<p><label for="">单价</label><input type="number" class="dj" placeholder="单价"></p>
+							<p>
+								<select name="" id="" class="choosePrice">
+									<option value="">请选择单价</option>
+									<option value="">批发价：40</option>
+									<option value="">批发价：0</option>
+									<option value="">批发价：20</option>
+									<option value="">批发价：10</option>
+								</select>
+							</p>
+						</div>
+						<div>
+							<p><label for="">折扣</label><input type="number" class="zk" value="1"></p>
+							<p><label for="">折后单价</label><input type="number" class="zkdj" value="0"></p>
+						</div>
+						<div>
+							<p><label for="">金额</label><input type="number" class="je" placeholder="0"></p>
+						</div>
+						<div>
+							<p><label for="">规格</label><input type="text" placeholder="460g"></p>
+							<p><label for="">型号</label><input type="text" placeholder="460g"></p>
+						</div>
+						<div>
+							<p><label for="">产地</label><input type="text" placeholder="印尼"></p>
+						</div>
+						<div>
+							<p><label for="">备注</label><input type="text" placeholder="备注"></p>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="goods" uid="2">
+				<form action="">
+					<div class="goods-head clearfix">
+						<img src="images/1.jpg" alt="">
+						<div>
+							<p>荔枝2</p>
+							<p>编号：<span>01001</span></p>
+							<p>条码：<span>01001000000</span></p>
+						</div>
+					</div>
+					<div class="head-body">
+						<div>
+							<p style="width: 100%;"><label for="">数量</label><input type="number" class="sl" placeholder="数量"></p>
+						</div>
+						<div>
+							<p style="width: 100%;">
+								<label for="">单位</label>
+								<span class="nowUnit unit">盒</span>
+								<span class="unit">箱</span>
+							</p>
+						</div>
+						<div>
+							<p><label for="">单价</label><input type="number" class="dj" placeholder="单价"></p>
+							<p>
+								<select name="" id="" class="choosePrice">
+									<option value="">请选择单价</option>
+									<option value="">批发价：40</option>
+									<option value="">批发价：0</option>
+									<option value="">批发价：20</option>
+									<option value="">批发价：10</option>
+								</select>
+							</p>
+						</div>
+						<div>
+							<p><label for="">折扣</label><input type="number" class="zk" value="1"></p>
+							<p><label for="">折后单价</label><input type="number" class="zkdj" value="0"></p>
+						</div>
+						<div>
+							<p><label for="">金额</label><input type="number" class="je" placeholder="0"></p>
+						</div>
+						<div>
+							<p><label for="">规格</label><input type="text" placeholder="460g"></p>
+							<p><label for="">型号</label><input type="text" placeholder="460g"></p>
+						</div>
+						<div>
+							<p><label for="">产地</label><input type="text" placeholder="印尼"></p>
+						</div>
+						<div>
+							<p><label for="">备注</label><input type="text" placeholder="备注"></p>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="goods" uid="3">
+				<form action="">
+					<div class="goods-head clearfix">
+						<img src="images/1.jpg" alt="">
+						<div>
+							<p>荔枝3</p>
+							<p>编号：<span>01001</span></p>
+							<p>条码：<span>01001000000</span></p>
+						</div>
+					</div>
+					<div class="head-body">
+						<div>
+							<p style="width: 100%;"><label for="">数量</label><input type="number" class="sl" placeholder="数量"></p>
+						</div>
+						<div>
+							<p style="width: 100%;">
+								<label for="">单位</label>
+								<span class="nowUnit unit">盒</span>
+								<span class="unit">箱</span>
+							</p>
+						</div>
+						<div>
+							<p><label for="">单价</label><input type="number" class="dj" placeholder="单价"></p>
+							<p>
+								<select name="" id="" class="choosePrice">
+									<option value="">请选择单价</option>
+									<option value="">批发价：40</option>
+									<option value="">批发价：0</option>
+									<option value="">批发价：20</option>
+									<option value="">批发价：10</option>
+								</select>
+							</p>
+						</div>
+						<div>
+							<p><label for="">折扣</label><input type="number" class="zk" value="1"></p>
+							<p><label for="">折后单价</label><input type="number" class="zkdj" value="0"></p>
+						</div>
+						<div>
+							<p><label for="">金额</label><input type="number" class="je" placeholder="0"></p>
+						</div>
+						<div>
+							<p><label for="">规格</label><input type="text" placeholder="460g"></p>
+							<p><label for="">型号</label><input type="text" placeholder="460g"></p>
+						</div>
+						<div>
+							<p><label for="">产地</label><input type="text" placeholder="印尼"></p>
+						</div>
+						<div>
+							<p><label for="">备注</label><input type="text" placeholder="备注"></p>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="goods" uid="4">
+				<form action="">
+					<div class="goods-head clearfix">
+						<img src="images/1.jpg" alt="">
+						<div>
+							<p>荔枝4</p>
+							<p>编号：<span>01001</span></p>
+							<p>条码：<span>01001000000</span></p>
+						</div>
+					</div>
+					<div class="head-body">
+						<div>
+							<p style="width: 100%;"><label for="">数量</label><input type="number" class="sl" placeholder="数量"></p>
+						</div>
+						<div>
+							<p style="width: 100%;">
+								<label for="">单位</label>
+								<span class="nowUnit unit">盒</span>
+								<span class="unit">箱</span>
+							</p>
+						</div>
+						<div>
+							<p><label for="">单价</label><input type="number" class="dj" placeholder="单价"></p>
+							<p>
+								<select name="" id="" class="choosePrice">
+									<option value="">请选择单价</option>
+									<option value="">批发价：40</option>
+									<option value="">批发价：0</option>
+									<option value="">批发价：20</option>
+									<option value="">批发价：10</option>
+								</select>
+							</p>
+						</div>
+						<div>
+							<p><label for="">折扣</label><input type="number" class="zk" value="1"></p>
+							<p><label for="">折后单价</label><input type="number" class="zkdj" value="0"></p>
+						</div>
+						<div>
+							<p><label for="">金额</label><input type="number" class="je" placeholder="0"></p>
+						</div>
+						<div>
+							<p><label for="">规格</label><input type="text" placeholder="460g"></p>
+							<p><label for="">型号</label><input type="text" placeholder="460g"></p>
+						</div>
+						<div>
+							<p><label for="">产地</label><input type="text" placeholder="印尼"></p>
+						</div>
+						<div>
+							<p><label for="">备注</label><input type="text" placeholder="备注"></p>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="goods" uid="5">
+				<form action="">
+					<div class="goods-head clearfix">
+						<img src="images/1.jpg" alt="">
+						<div>
+							<p>荔枝5</p>
+							<p>编号：<span>01001</span></p>
+							<p>条码：<span>01001000000</span></p>
+						</div>
+					</div>
+					<div class="head-body">
+						<div>
+							<p style="width: 100%;"><label for="">数量</label><input type="number" class="sl" placeholder="数量"></p>
+						</div>
+						<div>
+							<p style="width: 100%;">
+								<label for="">单位</label>
+								<span class="nowUnit unit">盒</span>
+								<span class="unit">箱</span>
+							</p>
+						</div>
+						<div>
+							<p><label for="">单价</label><input type="number" class="dj" placeholder="单价"></p>
+							<p>
+								<select name="" id="" class="choosePrice">
+									<option value="">请选择单价</option>
+									<option value="">批发价：40</option>
+									<option value="">批发价：0</option>
+									<option value="">批发价：20</option>
+									<option value="">批发价：10</option>
+								</select>
+							</p>
+						</div>
+						<div>
+							<p><label for="">折扣</label><input type="number" class="zk" value="1"></p>
+							<p><label for="">折后单价</label><input type="number" class="zkdj" value="0"></p>
+						</div>
+						<div>
+							<p><label for="">金额</label><input type="number" class="je" placeholder="0"></p>
+						</div>
+						<div>
+							<p><label for="">规格</label><input type="text" placeholder="460g"></p>
+							<p><label for="">型号</label><input type="text" placeholder="460g"></p>
+						</div>
+						<div>
+							<p><label for="">产地</label><input type="text" placeholder="印尼"></p>
+						</div>
+						<div>
+							<p><label for="">备注</label><input type="text" placeholder="备注"></p>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="goods" uid="6">
+				<form action="">
+					<div class="goods-head clearfix">
+						<img src="images/1.jpg" alt="">
+						<div>
+							<p>荔枝6</p>
+							<p>编号：<span>01001</span></p>
+							<p>条码：<span>01001000000</span></p>
+						</div>
+					</div>
+					<div class="head-body">
+						<div>
+							<p style="width: 100%;"><label for="">数量</label><input type="number" class="sl" placeholder="数量"></p>
+						</div>
+						<div>
+							<p style="width: 100%;">
+								<label for="">单位</label>
+								<span class="nowUnit unit">盒</span>
+								<span class="unit">箱</span>
+							</p>
+						</div>
+						<div>
+							<p><label for="">单价</label><input type="number" class="dj" placeholder="单价"></p>
+							<p>
+								<select name="" id="" class="choosePrice">
+									<option value="">请选择单价</option>
+									<option value="">批发价：40</option>
+									<option value="">批发价：0</option>
+									<option value="">批发价：20</option>
+									<option value="">批发价：10</option>
+								</select>
+							</p>
+						</div>
+						<div>
+							<p><label for="">折扣</label><input type="number" class="zk" value="1"></p>
+							<p><label for="">折后单价</label><input type="number" class="zkdj" value="0"></p>
+						</div>
+						<div>
+							<p><label for="">金额</label><input type="number" class="je" placeholder="0"></p>
+						</div>
+						<div>
+							<p><label for="">规格</label><input type="text" placeholder="460g"></p>
+							<p><label for="">型号</label><input type="text" placeholder="460g"></p>
+						</div>
+						<div>
+							<p><label for="">产地</label><input type="text" placeholder="印尼"></p>
+						</div>
+						<div>
+							<p><label for="">备注</label><input type="text" placeholder="备注"></p>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="goods-btn">
+				<div class="preGoods fa fa-chevron-left"></div>
+				<div class="nextGoods fa fa-chevron-right"></div>
+			</div>
+		</div>
+		<div class="saveGoods">保存</div>
+	</div>
+	<script src="js/drag.js"></script>
+	<script>
+		$(function(){
+			$('#__layer-ball').click(function(){
+				alert("准备扫码添加")
+			})
+		})
+	</script>
+</body>
+</html>
